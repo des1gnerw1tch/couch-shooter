@@ -1,13 +1,9 @@
 # CLAUDE.md
 
-## C# conventions
+Project documentation lives in the Obsidian vault. Start at the table of
+contents: `obsidian/couch-shooter-vault/TOC.md`.
 
-- Use expression-bodied members (`=>`) for one-line methods.
-- Prefix all member variable/field references with `this.`.
-
-## Git
-
-- The only git command you may run is `git commit`.
-- Do not push or pull.
-- Do not stage or unstage files (no `git add`, `git restore`, `git reset`, etc.). The user manages staging themselves; commit only what they have already staged.
-- Suggesting commit messages is welcome.
+**At the start of every session, read
+`obsidian/couch-shooter-vault/Claude Instructions.md`** (and the notes it links,
+e.g. `CSharp Conventions.md`) and follow it. It defines the conventions and AI
+policies for this project I must follow.

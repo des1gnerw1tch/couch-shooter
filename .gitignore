@@ -68,3 +68,10 @@ Hyper Runner/UserSettings/EditorUserSettings.asset
 # More unity stuff
 _Recovery/
 _Recovery.meta
+
+# Obsidian - ignore volatile per-user state (open panes, layout, local cache)
+# that rewrites constantly, while keeping shared config (settings, hotkeys,
+# plugins) versioned so the vault setup travels with the repo.
+obsidian/couch-shooter-vault/.obsidian/workspace.json
+obsidian/couch-shooter-vault/.obsidian/workspace-mobile.json
+obsidian/couch-shooter-vault/.obsidian/cache
