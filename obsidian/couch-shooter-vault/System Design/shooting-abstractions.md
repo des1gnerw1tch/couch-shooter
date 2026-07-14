@@ -108,19 +108,42 @@ the shot behaviour is what calls it. First target can just be a dummy that logs.
 - [x] **v1 scope:** ship semi-auto only first and add auto + burst once one gun
       feels good, or build all three cadences up front?
 	- [x] Let's add all three cadences up front
-- [ ] **Burst repeat:** holding the trigger auto-repeats the burst, or requires
-      a re-press? → a flag on `ABurstGun` would be good to support both of these; let's pick the default.
+- [x] **Burst repeat:** holding the trigger auto-repeats the burst, or requires
+      a re-press? → done: `BurstGun` has a `repeatWhileHeld` flag supporting
+      both; **default off** (re-press per burst, semi-burst).
 - [ ] **Reload cancelling** mechanism (see parking lot).
-- [ ] **`IShotBehaviour` inspector-selectable per gun?** Unity needs
-      `[SerializeReference]` for a polymorphic interface field — decide when we
-      build it.
+- [x] **`IShotBehavior` inspector-selectable per gun?** → done: the gun holds a
+      `[SerializeReference] IShotBehavior` field, so it is inspector-assignable;
+      defaults to `MockShotBehavior`.
 
 ## Parking lot (ideas we're deliberately NOT doing yet)
 
 - Weapon switching (the Previous/Next input actions exist, save for later)
 
+## Built so far
+
+First cadence pass is in (`Assets/Scripts/Shooting/`), tested and working with a
+mock shot:
+
+- **`AGun`** (abstract) — stats as private `[SerializeField]`s exposed via getter
+  methods (`GetDamagePerShot()`, `GetRange()`, ...), shared `CanFire()` gate,
+  `Fire()` (spends ammo, stamps cooldown, delegates to the shot behavior), and
+  `OnAttack` input routing. Shot origin/direction come from a serialized
+  `muzzle` Transform, not the gun's own transform. Input uses PlayerInput
+  **Broadcast Messages**.
+- **`SemiAutoGun`** — one shot per press, no `Update()`.
+- **`FullAutoGun`** — hold-to-fire via `Update()`.
+- **`BurstGun`** — N shots per pull; `fireRate` spaces shots *within* a burst,
+  new `timeBetweenBursts` field is the recovery gap *between* bursts; `repeatWhileHeld`
+  flag (default off). Its burst state machine has a `TODO (human)` to re-verify.
+- **`IShotBehavior`** + **`MockShotBehavior`** (logs `Fired!` and time since last
+  shot) — real `HitscanShot` still to come.
+
+Naming note: settled on US spelling **`Behavior`** (not `Behaviour`) and the
+cadence classes are **concrete** (no `A` prefix) so they attach directly.
+
 ## Next step
 
-Decide v1 scope from the open questions above, then pick the *smallest* first
-thing to actually build (probably: one semi-auto hitscan gun that damages a
-dummy target).
+Replace the mock with **`HitscanShot`**: raycast from the muzzle to `GetRange()`,
+deal `GetDamagePerShot()` to anything with health, spawn impact FX. Add the small
+`IDamageable` target (a dummy that logs) so shots have something to hit.
