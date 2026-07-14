@@ -5,7 +5,7 @@
 - [[Welcome]]
 
 ## Design
-- [[shooting-abstractions]] — weapon/shooting system design (in progress)
+- [[System Design]] — hub for system/architecture design notes
 
 ## Working with Claude Code
 - [[Claude Instructions]] — how Claude should work in this project
