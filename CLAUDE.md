@@ -7,5 +7,7 @@
 
 ## Git
 
-- Do not run git commands. The user handles all git operations themselves.
+- The only git command you may run is `git commit`.
+- Do not push or pull.
+- Do not stage or unstage files (no `git add`, `git restore`, `git reset`, etc.). The user manages staging themselves; commit only what they have already staged.
 - Suggesting commit messages is welcome.
