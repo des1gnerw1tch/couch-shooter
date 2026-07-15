@@ -5,6 +5,11 @@ Ideas and polish we'd like to get to eventually. Pull items from here into
 
 ## Shooting
 - Spawn impact FX at the hit point when a shot lands.
+- Weak-point / headshot hitboxes: `PlayerHealth` keeps a **separate list of head
+  hitboxes** alongside its normal ones and applies a multiplier itself when a
+  hit comes from that list (hits there count for double, etc.). The hitbox
+  stays dumb — `PlayerHealth` owns the scaling, not the hitbox. See
+  [[shot-target-abstraction]].
 
 ## Tooling
 - [ ] (Maybe) Add a `SessionStart` hook in `.claude/settings.json` that cats
