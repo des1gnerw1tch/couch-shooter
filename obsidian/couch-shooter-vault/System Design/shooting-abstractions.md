@@ -75,14 +75,14 @@ interface IShotBehaviour
 
 - **HitscanShot** (first): raycast from `firePosition` along `direction` out to
   the gun's range. If it hits something with health, deal `gun.DamagePerShot`.
-  Spawn impact FX at the hit point.
 - **ProjectileShot** (later): spawn a projectile prefab at `firePosition`
   heading in `direction`; the projectile handles its own travel + collision.
   Slots in beside HitscanShot with no change to any cadence class — a burst
   grenade launcher is just `ABurstGun` + `ProjectileShot`.
 
-Anything that can be shot implements a small **IDamageable** (`TakeDamage(...)`);
-the shot behaviour is what calls it. First target can just be a dummy that logs.
+How a shot target is defined (what "something with health" means) is TBD — we'll
+brainstorm that when we get to it.
+
 ### Decisions locked in
 
 - **Hitscan first**, projectiles later; keep the door open for them.
@@ -145,5 +145,5 @@ cadence classes are **concrete** (no `A` prefix) so they attach directly.
 ## Next step
 
 Replace the mock with **`HitscanShot`**: raycast from the muzzle to `GetRange()`,
-deal `GetDamagePerShot()` to anything with health, spawn impact FX. Add the small
-`IDamageable` target (a dummy that logs) so shots have something to hit.
+deal `GetDamagePerShot()` to anything with health. How hit targets are defined is
+still to be brainstormed.

@@ -2,6 +2,7 @@
 
 ## Project
 - [[TODO]] — outstanding work
+- [[Would Be Nice]] — non-essential ideas and polish
 - [[Welcome]]
 
 ## Design

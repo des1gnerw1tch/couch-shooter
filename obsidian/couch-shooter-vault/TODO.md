@@ -1,10 +1,20 @@
 # TODO
 
 ## Gameplay
-- [x] Shooting scripts (fire weapon, raycast/projectile, damage, fire rate, ammo).
-      Design it to be **general** so it supports multiple different gun types
-      (e.g. pistol, shotgun, automatic rifle) — shared base behavior with
-      per-weapon config for fire rate, damage, spread, ammo, projectile type, etc.
+
+### Shooting
+See [[shooting-abstractions]] for the design.
+- [x] Shooting abstraction scripts (fire weapon, raycast/projectile, damage,
+      fire rate, ammo). Design it to be **general** so it supports multiple
+      different gun types (e.g. pistol, shotgun, automatic rifle) — shared base
+      behavior with per-weapon config for fire rate, damage, spread, ammo,
+      projectile type, etc.
+- [x] Add audio to guns (fire sounds via AudioManager).
+- [ ] Implement `HitscanShot` — instant raycast from the muzzle that deals
+      damage to whatever it hits.
+- [ ] Implement `ProjectileShot` — spawn a projectile that flies from the muzzle
+      and handles its own travel + collision. Slots in beside `HitscanShot` with
+      no change to any cadence class.
 
 ## Rendering
 - [ ] Prevent the gun from clipping into walls. Approach to explore: render the
