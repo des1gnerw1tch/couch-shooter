@@ -69,6 +69,10 @@ public abstract class AGun : MonoBehaviour
     {
         this.ammoInMagazine--;
         this.lastFireTime = Time.time;
+        if (fireSound != "")
+        {
+            AudioManager.Instance.Play(fireSound);
+        }
         this.shotBehavior.Fire(this.muzzle.position, this.muzzle.forward, this);
     }
 }

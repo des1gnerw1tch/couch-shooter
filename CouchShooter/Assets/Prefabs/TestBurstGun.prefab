@@ -129,8 +129,8 @@ MonoBehaviour:
   damagePerShot: 10
   range: 100
   reloadTime: 1.5
-  magazineSize: 30
-  fireSound: 
+  magazineSize: 400
+  fireSound: fire1
   muzzle: {fileID: 0}
   shotBehavior:
     rid: 2814259703544021066
