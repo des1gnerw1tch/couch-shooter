@@ -141,9 +141,3 @@ mock shot:
 
 Naming note: settled on US spelling **`Behavior`** (not `Behaviour`) and the
 cadence classes are **concrete** (no `A` prefix) so they attach directly.
-
-## Next step
-
-Replace the mock with **`HitscanShot`**: raycast from the muzzle to `GetRange()`,
-deal `GetDamagePerShot()` to anything with health. How hit targets are defined is
-still to be brainstormed.

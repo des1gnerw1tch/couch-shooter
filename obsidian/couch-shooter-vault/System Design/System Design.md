@@ -5,3 +5,4 @@ cluster together in the graph view.
 
 ## Notes
 - [[shooting-abstractions]]
+- [[shot-target-abstraction]]
