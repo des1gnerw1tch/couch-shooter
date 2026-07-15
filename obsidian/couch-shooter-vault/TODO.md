@@ -1,7 +1,7 @@
 # TODO
 
 ## Gameplay
-- [ ] Shooting scripts (fire weapon, raycast/projectile, damage, fire rate, ammo).
+- [x] Shooting scripts (fire weapon, raycast/projectile, damage, fire rate, ammo).
       Design it to be **general** so it supports multiple different gun types
       (e.g. pistol, shotgun, automatic rifle) — shared base behavior with
       per-weapon config for fire rate, damage, spread, ammo, projectile type, etc.
