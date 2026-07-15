@@ -16,16 +16,5 @@ See [[shooting-abstractions]] for the design.
       and handles its own travel + collision. Slots in beside `HitscanShot` with
       no change to any cadence class.
 
-## Rendering
-- [ ] Prevent the gun from clipping into walls. Approach to explore: render the
-      viewmodel (gun/arms) with a **separate camera** on its own layer, then
-      overlay that render on top of the main scene camera. The weapon camera
-      draws the gun last (or clears depth) so geometry never intersects it.
-      Details TBD — need to work out camera stacking, layers/culling masks, and
-      FOV matching between the two cameras.
 
-## Tooling
-- [ ] (Maybe) Add a `SessionStart` hook in `.claude/settings.json` that cats
-      `Claude Instructions.md` into context every session, so Claude always reads
-      the preferences deterministically rather than relying on the CLAUDE.md
-      pointer instruction.
+
