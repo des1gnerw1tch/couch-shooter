@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Base class for every gun. Owns gun state and the shared firing gate; each
 /// concrete subclass supplies only its cadence (WHEN to fire). WHAT a shot does
-/// is composed in via <see cref="IShotBehavior"/>, so any cadence pairs with
+/// is composed in via <see cref="AShotBehavior"/>, so any cadence pairs with
 /// any shot behavior.
 ///
 /// Attach a PlayerInput (Behavior = "Broadcast Messages") on the same object; its
@@ -26,7 +26,7 @@ public abstract class AGun : MonoBehaviour
     // the aim direction. Serialized so it is NOT assumed to be the gun's own
     // transform.
     [SerializeField] private Transform muzzle;
-    [SerializeReference] private IShotBehavior shotBehavior = new MockShotBehavior();
+    [SerializeField] private AShotBehavior shotBehavior;
 
     private int ammoInMagazine;
     private float lastFireTime = -Mathf.Infinity;

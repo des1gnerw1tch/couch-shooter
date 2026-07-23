@@ -43,8 +43,8 @@ AGun : MonoBehaviour (abstract)         cadence + gun state
   │                                     fireSound (string),
   │                                     lookDownScopeTime (future)
   │   → exposed via public getters so the shot behaviour can read them
-  └─ IShotBehaviour shotBehaviour       composed in
-        ├─ HitscanShot
+  └─ AShotBehavior shotBehaviour       composed in
+        ├─ RaycastShot
         └─ ProjectileShot (later)
 
   subclasses (the cadence):
@@ -57,12 +57,12 @@ AGun : MonoBehaviour (abstract)         cadence + gun state
                     burst (semi burst).
 ```
 
-### IShotBehaviour (the "what a shot does" knob)
+### AShotBehavior (the "what a shot does" knob)
 
-Composed into `AGun`. One interface, one method:
+Composed into `AGun`. A `ScriptableObject` (reusable asset), one method:
 
 ```
-interface IShotBehaviour
+abstract class AShotBehavior : ScriptableObject
     void Fire(Vector3 firePosition, Vector3 direction, AGun gun)
 ```
 
@@ -73,11 +73,11 @@ interface IShotBehaviour
 
 ### Implementations
 
-- **HitscanShot** (first): raycast from `firePosition` along `direction` out to
+- **RaycastShot** (first): raycast from `firePosition` along `direction` out to
   the gun's range. If it hits something with health, deal `gun.DamagePerShot`.
 - **ProjectileShot** (later): spawn a projectile prefab at `firePosition`
   heading in `direction`; the projectile handles its own travel + collision.
-  Slots in beside HitscanShot with no change to any cadence class — a burst
+  Slots in beside RaycastShot with no change to any cadence class — a burst
   grenade launcher is just `ABurstGun` + `ProjectileShot`.
 
 How a shot target is defined (what "something with health" means) is TBD — we'll
@@ -112,9 +112,8 @@ brainstorm that when we get to it.
       a re-press? → done: `BurstGun` has a `repeatWhileHeld` flag supporting
       both; **default off** (re-press per burst, semi-burst).
 - [ ] **Reload cancelling** mechanism (see parking lot).
-- [x] **`IShotBehavior` inspector-selectable per gun?** → done: the gun holds a
-      `[SerializeReference] IShotBehavior` field, so it is inspector-assignable;
-      defaults to `MockShotBehavior`.
+- [x] **`AShotBehavior` inspector-selectable per gun?** → done: shots are
+      `ScriptableObject` assets dropped into the gun's `[SerializeField]` field.
 
 ## Parking lot (ideas we're deliberately NOT doing yet)
 
@@ -136,8 +135,8 @@ mock shot:
 - **`BurstGun`** — N shots per pull; `fireRate` spaces shots *within* a burst,
   new `timeBetweenBursts` field is the recovery gap *between* bursts; `repeatWhileHeld`
   flag (default off). Its burst state machine has a `TODO (human)` to re-verify.
-- **`IShotBehavior`** + **`MockShotBehavior`** (logs `Fired!` and time since last
-  shot) — real `HitscanShot` still to come.
+- **`AShotBehavior`** + **`MockShotBehavior`** (logs `Fired!` and time since last
+  shot) — real `RaycastShot` still to come.
 
 Naming note: settled on US spelling **`Behavior`** (not `Behaviour`) and the
 cadence classes are **concrete** (no `A` prefix) so they attach directly.

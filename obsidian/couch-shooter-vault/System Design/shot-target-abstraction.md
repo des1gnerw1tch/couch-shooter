@@ -8,12 +8,12 @@ make them, not a finished plan. Nothing here is code yet.
 
 ## Where this fits
 
-The cadence layer (WHEN to fire) and `IShotBehavior` (WHAT a shot does) are
+The cadence layer (WHEN to fire) and `AShotBehavior` (WHAT a shot does) are
 built and working against `MockShotBehavior`. The next real behavior is
-`HitscanShot`: raycast from the muzzle out to `gun.GetRange()`, and deal
+`RaycastShot`: raycast from the muzzle out to `gun.GetRange()`, and deal
 `gun.GetDamagePerShot()` to whatever it hits.
 
-`HitscanShot` needs one thing this doc has to define: **given a raycast hit,
+`RaycastShot` needs one thing this doc has to define: **given a raycast hit,
 how do we know if it's a valid target, and how do we tell it "take N damage"?**
 
 ## The question to answer

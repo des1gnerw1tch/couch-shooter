@@ -2,6 +2,11 @@
 
 How Claude Code should work in this project.
 
+## Workflow
+
+- Implement **one file at a time**. Write a single script, let me review it, then
+  move on to the next — do not batch multiple new/changed files in one go.
+
 ## C# conventions
 
 See [[CSharp Conventions]].

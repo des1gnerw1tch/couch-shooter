@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1202014197261751145
+--- !u!1 &1596969305459585732
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4882321611781460934}
-  - component: {fileID: 167473663062058789}
-  - component: {fileID: 633044749987872785}
-  - component: {fileID: 644417450553105664}
-  - component: {fileID: -687375094672312816}
+  - component: {fileID: 1521926544865732204}
+  - component: {fileID: 5917304429096742227}
+  - component: {fileID: 1014751408843791983}
+  - component: {fileID: 730058449300113128}
+  - component: {fileID: 5117915228220026017}
+  - component: {fileID: -1826504423127655294}
   m_Layer: 0
-  m_Name: TestBurstGun
+  m_Name: HittableCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4882321611781460934
+--- !u!4 &1521926544865732204
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202014197261751145}
+  m_GameObject: {fileID: 1596969305459585732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 16.72128, y: 1.47, z: 4.55574}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &167473663062058789
+--- !u!33 &5917304429096742227
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202014197261751145}
+  m_GameObject: {fileID: 1596969305459585732}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &633044749987872785
+--- !u!23 &1014751408843791983
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202014197261751145}
+  m_GameObject: {fileID: 1596969305459585732}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -68,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff7fa65ad2f8a4928872cce11fa6697a, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,13 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &644417450553105664
+--- !u!65 &730058449300113128
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202014197261751145}
+  m_GameObject: {fileID: 1596969305459585732}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,26 +114,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-687375094672312816
+--- !u!114 &5117915228220026017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202014197261751145}
+  m_GameObject: {fileID: 1596969305459585732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299c8d75311204163820182dd2a49ed5, type: 3}
+  m_Script: {fileID: 11500000, guid: d2d1940bd55644e96ab63d5dc8cfa51e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BurstGun
-  fireRate: 12
-  damagePerShot: 10
-  range: 100
-  reloadTime: 1.5
-  magazineSize: 400
-  fireSound: fire1
-  muzzle: {fileID: 0}
-  shotBehavior: {fileID: 11400000, guid: ea01587aa851844f08869c1d927a5741, type: 2}
-  burstCount: 8
-  timeBetweenBursts: 2
-  repeatWhileHeld: 0
+  m_EditorClassIdentifier: Assembly-CSharp::InvokeEventOnHit
+--- !u!114 &-1826504423127655294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596969305459585732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52676f6cffcf434f8dce9998cee110e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  hitboxes:
+  - {fileID: 5117915228220026017}

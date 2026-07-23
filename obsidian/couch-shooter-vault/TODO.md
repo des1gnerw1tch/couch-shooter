@@ -10,12 +10,12 @@ See [[shooting-abstractions]] for the design.
       behavior with per-weapon config for fire rate, damage, spread, ammo,
       projectile type, etc.
 - [x] Add audio to guns (fire sounds via AudioManager).
-- [ ] Create the shot-target abstraction (what a shot can hit and how it deals
+- [x] Create the shot-target abstraction (what a shot can hit and how it deals
       damage) — see [[shot-target-abstraction]]. Do this before implementing type of Shots, since both depend on it.
-- [ ] Implement `HitscanShot` — instant raycast from the muzzle that deals
+- [x] Implement `RaycastShot` — instant raycast from the muzzle that deals
       damage to whatever it hits.
 - [ ] Implement `ProjectileShot` — spawn a projectile that flies from the muzzle
-      and handles its own travel + collision. Slots in beside `HitscanShot` with
+      and handles its own travel + collision. Slots in beside `RaycastShot` with
       no change to any cadence class.
 
 
