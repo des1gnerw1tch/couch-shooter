@@ -3,7 +3,6 @@
 ## Project
 - [[TODO]] — outstanding work
 - [[Would Be Nice]] — non-essential ideas and polish
-- [[Welcome]]
 
 ## Design
 - [[System Design]] — hub for system/architecture design notes
